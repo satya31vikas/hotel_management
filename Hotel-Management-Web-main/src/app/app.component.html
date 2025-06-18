@@ -1,6 +1,6 @@
-<nz-layout>
+<nz-layout style="min-height: 100vh;">
   
-  <!-- Default Sidebar (Not Logged In) -->
+  <!-- Default Sidebar -->
   <nz-sider nzCollapsible nzWidth="200px" *ngIf="!isAdminLoggedIn && !isCustomerLoggedIn">
     <div class="logo"></div>
     <ul nz-menu nzTheme="dark" nzMode="inline">
@@ -19,27 +19,22 @@
   <nz-sider nzCollapsible nzWidth="200px" *ngIf="isAdminLoggedIn">
     <div class="logo"></div>
     <ul nz-menu nzTheme="dark" nzMode="inline">
-     
       <li nz-menu-item routerLink="/admin/room">
         <span nz-icon nzType="apartment"></span>
         <span><strong>Post Room</strong></span>
       </li>
-     
       <li nz-menu-item routerLink="/admin/dashboard">
         <span nz-icon nzType="apartment"></span>
         <span><strong>Rooms</strong></span>
       </li>
-     
       <li nz-menu-item routerLink="/admin/reservations">
         <span nz-icon nzType="pull-request"></span>
         <span><strong>Reservations</strong></span>
       </li>
-     
       <li nz-menu-item (click)="logout()">
         <span nz-icon nzType="logout"></span>
         <span><strong>Logout</strong></span>
       </li>
-
     </ul>
   </nz-sider>
 
@@ -47,33 +42,30 @@
   <nz-sider nzCollapsible nzWidth="200px" *ngIf="isCustomerLoggedIn">
     <div class="logo"></div>
     <ul nz-menu nzTheme="dark" nzMode="inline">
-    
       <li nz-menu-item routerLink="/customer/rooms">
         <span nz-icon nzType="apartment"></span>
         <span><strong>Rooms</strong></span>
       </li>
-    
       <li nz-menu-item routerLink="/customer/bookings">
         <span nz-icon nzType="pull-request"></span>
         <span><strong>Bookings</strong></span>
       </li>
-    
       <li nz-menu-item (click)="logout()">
         <span nz-icon nzType="logout"></span>
         <span><strong>Logout</strong></span>
       </li>
-
     </ul>
   </nz-sider>
 
-  <nz-layout>
-    <nz-content>
+  <!-- Main Content Area -->
+  <nz-layout style="flex: 1; display: flex; flex-direction: column;">
+    <nz-content class="main-content">
       <router-outlet></router-outlet>
     </nz-content>
 
-    <nz-footer>
+    <nz-footer class="footer">
       <p>© 2025 Hotel Management System</p>
     </nz-footer>
   </nz-layout>
-  
+
 </nz-layout>
